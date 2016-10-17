@@ -1,0 +1,52 @@
+{
+  "name": "factoritt-jasperreports_server",
+  "version": "0.0.1",
+  "author": "Joep Brunsveld",
+  "summary": "Jasper Reports Puppet lib",
+  "license": "Apache 2.0",
+  "source": "https://github.com/jbbrunsveld/arin-jasperreports_server.git",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=3.2.0"
+    },
+    {
+      "name": "nanliu/archive",
+      "version_requirement": ">=0.3.0"
+    },
+    {
+      "name": "maestrodev/wget",
+      "version_requirement": ">=1.7.0"
+    },
+    {
+      "name": "puppetlabs-apt",
+      "version_requirement": ">=2.3.0"
+    },
+    {
+      "name": "puppetlabs-java",
+      "version_requirement": ">=1.6.0"
+    },
+    {
+      "name": "puppetlabs-tomcat",
+      "version_requirement": ">=1.6.0"
+    },
+    {
+      "name": "puppetlabs-mysql",
+      "version_requirement": ">=3.9.0"
+    },
+    {
+      "name": "puppetlabs-postgresql",
+      "version_requirement": ">=4.8.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04"
+      ]
+    }
+  ]
+}
