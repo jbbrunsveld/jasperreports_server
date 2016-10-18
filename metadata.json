@@ -1,6 +1,6 @@
 {
   "name": "factorit-jasperreports_server",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Joep Brunsveld",
   "summary": "Jasper Reports Puppet lib",
   "license": "Apache 2.0",
@@ -39,6 +39,10 @@
     {
       "name": "puppetlabs-postgresql",
       "version_requirement": ">=4.8.0"
+    },
+    {
+      "name": "puppet-mysql_java_connector",
+      "version_requirement": ">=2.2.0"
     }
   ],
   "operatingsystem_support": [

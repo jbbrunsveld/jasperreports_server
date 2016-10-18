@@ -23,6 +23,7 @@ that references a generated default_master.properties file
 
 The WAR is then copied to the specified application server reference in default_master.properties
 
+
 ## Setup
 
 #### Setup Requirements
