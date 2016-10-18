@@ -53,8 +53,8 @@ pasword: jasperadmin
 
 ## Limitations
 
-Ubuntu 14.04 only
-Currently only MySQL (application) database implementation 
+* Ubuntu 14.04 only
+* Currently only MySQL (application) database implementation 
 
 
 ## Further documentation
