@@ -53,7 +53,13 @@ class jasperreports_server::install (
 
   notify { "Installing java dependencies for Jasper Reports": }
 
-  package {'unzip': }
+  package { 'unzip': }
+
+  mysql_grant{ "${buildomatic_dbusername}@localhost/*.*":
+    user       => "${buildomatic_dbusername}@localhost",
+    table      => '*.*',
+    privileges => ['ALL'],
+  }
 
   mysql::db { 'mysql':
     user     => $buildomatic_dbusername,
@@ -93,11 +99,11 @@ class jasperreports_server::install (
 
   # Check to see which version of Java we should install
   # Install OpenJDK 1.8 if JasperReports version is 1.6.0 or higher
-#  if versioncmp($pkg_version, '1.6.0') >= 0 {
-#    ensure_packages('oracle-java8-installer', {'ensure' => 'present'})
-#  } else {
-#    ensure_packages('java-1.6.0-openjdk', {'ensure' => 'present'})
-#  }
+  #  if versioncmp($pkg_version, '1.6.0') >= 0 {
+  #    ensure_packages('oracle-java8-installer', {'ensure' => 'present'})
+  #  } else {
+  #    ensure_packages('java-1.6.0-openjdk', {'ensure' => 'present'})
+  #  }
 
   # Set the Source URL
   if ( $source_url == undef ) {
@@ -160,14 +166,14 @@ class jasperreports_server::install (
     unless  => "test -d ${buildomatic_appserverdir}/webapps/jasperserver",
     require => File['default_master.properties'],
   } ->
-  # Run the js-install with minimal flag
+    # Run the js-install with minimal flag
   exec { 'Run js-install minimal':
-    path    => "/bin:/usr/bin:/sbin:/usr/sbin:/tmp/jasperreports-server-cp-${pkg_version}-bin/buildomatic",
-    cwd     => "/tmp/jasperreports-server-cp-${pkg_version}-bin/buildomatic",
-    command => 'js-install-ce.sh minimal',
-    creates => "${buildomatic_appserverdir}/webapps/jasperserver",
-    user    => $buildomatic_user,
-    timeout => '400',
+    path        => "/bin:/usr/bin:/sbin:/usr/sbin:/tmp/jasperreports-server-cp-${pkg_version}-bin/buildomatic",
+    cwd         => "/tmp/jasperreports-server-cp-${pkg_version}-bin/buildomatic",
+    command     => 'js-install-ce.sh minimal',
+    creates     => "${buildomatic_appserverdir}/webapps/jasperserver",
+    user        => $buildomatic_user,
+    timeout     => '400',
     require     => [
       Apt::Ppa['ppa:webupd8team/java'],
       Tomcat::Install['/opt/apache-tomcat'],
@@ -175,7 +181,7 @@ class jasperreports_server::install (
       Mysql::Db['mysql'],
     ]
   } ->
-  # Dirty hack because of issues getting js-install to run as non-root user
+    # Dirty hack because of issues getting js-install to run as non-root user
   exec { 'Update Jasper WebApp Ownership':
     path        => '/bin:/usr/bin:/sbin:/usr/sbin',
     command     => "chown -R tomcat:tomcat ${buildomatic_appserverdir}/webapps/jasperserver",
