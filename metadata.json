@@ -1,10 +1,10 @@
 {
   "name": "factorit-jasperreports_server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Joep Brunsveld",
   "summary": "Jasper Reports Puppet lib",
   "license": "Apache 2.0",
-  "source": "https://github.com/jbbrunsveld/arin-jasperreports_server.git",
+  "source": "https://github.com/jbbrunsveld/jasperreports_server",
   "project_page": null,
   "issues_url": null,
   "dependencies": [

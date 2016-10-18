@@ -38,6 +38,24 @@ class { '::jasperreports_server':
 }
 ````
 
+Starting Jasper Reporting Server
+
+````
+sudo /opt/apache-tomcat/bin/shutdown.sh
+sudo /opt/apache-tomcat/bin/startup.sh 
+````
+
+After you have started the server, you can use the reporting server at the following location:
+http://{your_ip}:8080/jasperserver/login.html
+
+username: jasperadmin
+pasword: jasperadmin
+
 ## Limitations
 
-Currently only tested on Centos 6.x
+Ubuntu 14.04 only
+Currently only MySQL (application) database implementation 
+
+
+## Further documentation
+http://community.jaspersoft.com/documentation/tibco-jasperreports-server-community-project-installation-guide/v630/logging-0
