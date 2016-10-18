@@ -11,7 +11,8 @@
 
 ## Overview
 
-Retrieves and Installs JasperReports server from a named source,
+Retrieves and Installs JasperReports server from a named source.
+This module is based on https://github.com/arineng/arin-jasperreports_server but is based on Ubuntu. In constrast to the orignal plugin, it installs the prerequisites like a database server and tomcat server too.  
 
 ## Module Description
 
