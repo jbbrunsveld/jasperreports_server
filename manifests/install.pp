@@ -189,4 +189,25 @@ class jasperreports_server::install (
     subscribe   => Exec['Run js-install minimal'],
     refreshonly => true,
   }
+
+  file { '/jdbc':
+    ensure => 'directory',
+    owner  => 'tomcat',
+    group  => 'tomcat',
+  }
+
+  file { '/jdbc/com_mysql_jdbc_Driver':
+    ensure => 'directory',
+    owner  => 'tomcat',
+    group  => 'tomcat',
+    require => File['/jdbc']
+  }
+
+  class { 'mysql_java_connector':
+    links  => ['/jdbc/com_mysql_jdbc_Driver', '/opt/apache-tomcat/webapps/jasperserver/WEB-INF/lib/'],
+    require => [
+      File['/jdbc/com_mysql_jdbc_Driver'],
+      Exec['Run js-install minimal']
+    ]
+  }
 }
