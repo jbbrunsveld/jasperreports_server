@@ -30,7 +30,7 @@ This module requires that you have a functioning application server such as Apac
 
 ## Usage
 
-> If not specified will obtain the source from sourceforge referncing the pkg_verison given
+> If not specified will obtain the source from sourceforge referncing the pkg_verison given 
 
 ````
 class { '::jasperreports_server':
