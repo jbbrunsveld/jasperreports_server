@@ -1,6 +1,6 @@
 {
   "name": "factorit-jasperreports_server",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Joep Brunsveld",
   "summary": "Jasper Reports Puppet lib",
   "license": "Apache 2.0",
