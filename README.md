@@ -4,15 +4,13 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with jasperreports_server](#setup)
-    * [Setup requirements](#setup-requirements)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Limitations - OS compatibility, etc.](#limitations)
+3. [Usage - Configuration options and additional functionality](#usage)
+4. [Limitations - OS compatibility, etc.](#limitations)
 
 ## Overview
 
 Retrieves and Installs JasperReports server from a named source.
-This module is based on https://github.com/arineng/arin-jasperreports_server but is based on Ubuntu. In constrast to the orignal plugin, it installs the prerequisites like a database server and tomcat server too.  
+This module is a fork of https://github.com/arineng/arin-jasperreports_server but is based on Ubuntu instead of CentOS. In contrast to the original plugin, it installs the prerequisites like a database server and tomcat server too.  
 
 ## Module Description
 
@@ -23,16 +21,9 @@ that references a generated default_master.properties file
 
 The WAR is then copied to the specified application server reference in default_master.properties
 
-
-## Setup
-
-#### Setup Requirements
-
-This module requires that you have a functioning application server such as Apache Tomcat.
-
 ## Usage
 
-> If not specified will obtain the source from sourceforge referncing the pkg_verison given 
+If not specified will obtain the source from sourceforge referncing the pkg_verison given 
 
 ````
 class { '::jasperreports_server':
@@ -47,7 +38,7 @@ sudo /opt/apache-tomcat/bin/shutdown.sh
 sudo /opt/apache-tomcat/bin/startup.sh 
 ````
 
-After you have started the server, you can use the reporting server at the following location:
+After you have started the server, use the reporting server at the following location:
 http://{your_ip}:8080/jasperserver/login.html
 
 username: jasperadmin
