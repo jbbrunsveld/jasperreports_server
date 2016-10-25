@@ -75,8 +75,15 @@ class jasperreports_server::install (
       command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections';
   }
 
+  package { "software-properties-common":
+    ensure => present
+  }
+
   apt::ppa { 'ppa:webupd8team/java':
-    require => [Exec['set-licence-selected'], Exec['set-licence-seen']]
+    require => [
+      Package["software-properties-common"],
+      Exec['set-licence-selected'],
+      Exec['set-licence-seen']]
   }
 
   #Force apt-get update execution before trying to install java
@@ -190,8 +197,8 @@ class jasperreports_server::install (
     refreshonly => true,
   }
 
-  class {'mysql_java_connector':
-    links  => ['/opt/apache-tomcat/lib/'],
+  class { 'mysql_java_connector':
+    links   => ['/opt/apache-tomcat/lib/'],
     require => [
       Exec['Run js-install minimal']
     ]
