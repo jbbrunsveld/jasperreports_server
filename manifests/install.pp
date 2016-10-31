@@ -36,12 +36,12 @@ class jasperreports_server::install (
   $buildomatic_dbusername    = $jasperreports_server::buildomatic_dbusername,
   $buildomatic_dbpassword    = $jasperreports_server::buildomatic_dbpassword,
   $buildomatic_extras        = $jasperreports_server::buildomatic_extras,
-  $mail_sender_host          = 'test.test.nl',
-  $mail_sender_username      = 'test.test.nl',
-  $mail_sender_password      = 'test.test.nl',
-  $mail_sender_from          = 'test.test.nl',
-  $mail_sender_protocol      = 'test.test.nl',
-  $mail_sender_port          = 'test.test.nl',
+  $mail_sender_host          = $jasperreports_server::mail_sender_host,
+  $mail_sender_username      = $jasperreports_server::mail_sender_username,
+  $mail_sender_password      = $jasperreports_server::mail_sender_password,
+  $mail_sender_from          = $jasperreports_server::mail_sender_from,
+  $mail_sender_protocol      = $jasperreports_server::mail_sender_protocol,
+  $mail_sender_port          = $jasperreports_server::mail_sender_port,
 
 ) inherits jasperreports_server::params {
 
@@ -176,7 +176,7 @@ class jasperreports_server::install (
 
   file { 'js.quarz.properties':
     ensure  => present,
-    path    => "$buildomatic_appserverdir/webapps/jasperserver/WEB-INF/jasper_default_master.properties",
+    path    => "$buildomatic_appserverdir/webapps/jasperserver/WEB-INF/js.quartz.properties",
     owner   => root,
     group   => root,
     mode    => '0700',

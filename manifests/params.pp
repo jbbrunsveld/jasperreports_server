@@ -18,4 +18,10 @@ class jasperreports_server::params {
   $ad_user_base = 'OU=Users,DC=example,DC=dev'
   $ad_org_roles = [ 'jasperGroup1', 'jasperGroup2', ]
   $sql_validation = true
+  $mail_sender_host          = 'mail.example.com'
+  $mail_sender_username      = 'admin'
+  $mail_sender_password      = 'password'
+  $mail_sender_from          = 'admin@example.com'
+  $mail_sender_protocol      = 'smtp'
+  $mail_sender_port          = '25'
 }
